@@ -2,12 +2,15 @@
 .SH NAME
 rfc \- download internet RFCs and display them on screen, man-style
 .SH SYNOPSIS
-.B rfc [options] [rfc number]
+.B rfc [rfc number or search string]
 .SH DESCRIPTION
 .PP
 rfc downloads internet RFCs and displays them on screen. In interactive mode,
 screen display is delegated to less(1) which means that less commands such as
 regexp searches are available.
+.PP
+A simple regex search function is also available to search the titles of
+released RFCs.
 .PP
 Some attempt is made to remove unnecessary formatting. The RFCs are all
 formatted for printing on US letter, which means that there are a lot of extra
