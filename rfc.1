@@ -1,8 +1,8 @@
-.TH RFC 1 "December 17, 2011" Linux "USER COMMANDS"
+.TH RFC 1 "February 20, 2016" Linux "USER COMMANDS"
 .SH NAME
 rfc \- download internet RFCs and display them on screen, man-style
 .SH SYNOPSIS
-.B rfc.py [options] [rfc number]
+.B rfc [options] [rfc number]
 .SH DESCRIPTION
 .PP
 rfc downloads internet RFCs and displays them on screen. In interactive mode,
@@ -21,25 +21,10 @@ them comfortably.
 Currently, rfc fetches RFCs from their source, the rfc-editor.org website.  My
 intention is to add support for the RFC packages that many distros contain, so
 that the program can operate offline as well.
-.SH OPTIONS
-.TP
-<<<<<<< HEAD
-\-p, \-\-printable Do not attempt to remove formatting; preserve original
-printer-friendly format.
-.TP
-\-h, \-\-help Open this file instead of an RFC.
-=======
-\-p, \-\-printable 
-Do not attempt to remove formatting; preserve original printer-friendly format.
-.TP
-\-h, \-\-help 
-Open this file instead of an RFC.
->>>>>>> 71577f885f1cf1cd8547467623bbac9e09c7671b
-
 .SH AUTHOR
-.PP 
-Johan Förberg, 
+.PP
+Johan Förberg,
 .B <johan@forberg.se>
 .SH SEE ALSO
 .PP
-less(1), man(1), python(1).
+less(1), man(1)

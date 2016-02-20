@@ -1,12 +1,6 @@
 #!/bin/bash
 
-PROG=$0
 RFC_URL='http://www.rfc-editor.org/rfc/rfc%d.txt'
-
-error()
-{
-    printf '%s error: %s\n' "$PROG" "$@" >2
-}
 
 online_rfc()
 {
@@ -23,13 +17,13 @@ deformat_rfc()
         x; 1d; p
         $ {
             x; p
-        }' | 
+        }' |
     # Collapse multiple blank lines into one
     awk '!NF {
-             if (++n <= 1) 
+             if (++n <= 1)
                  print
              next
-         } 
+         }
          {
              n=0
              print
@@ -37,20 +31,17 @@ deformat_rfc()
 }
 
 highlight_rfc() {
-    #if [[ -z "$PS1" ]]; then
-    #    cat
-    #else
-        awk '/^ /, /^$/ {
-                print
+    # Make headlines etc. highlighted for console use
+    awk '/^ /, /^$/ {
+            print
+        }
+        /^[^ ]/ {
+            split($0, chars, "")
+            for(i = 1; i <= length(chars); i++) {
+                printf("%s\x08%s", chars[i], chars[i])
             }
-            /^[^ ]/ {
-                split($0, chars, "")
-                for(i = 1; i <= length(chars); i++) {
-                    printf("%s\x08%s", chars[i], chars[i])
-                }
-                printf("\n")
-            }'
-    #fi
+            printf("\n")
+        }'
 }
 
 display_rfc()
@@ -58,5 +49,15 @@ display_rfc()
     less
 }
 
-online_rfc $1 | deformat_rfc | highlight_rfc | display_rfc
+if [ "x$1" = 'x-h' -o "$#" -ne 1 -o -z "$1" ]; then
+    echo 'Usage: rfc [number]' 2>/dev/null
+    exit 1
+fi
+
+if [ -t 1 ]; then
+    # Interactive tty
+    online_rfc $1 | deformat_rfc | highlight_rfc | display_rfc
+else
+    online_rfc $1 | deformat_rfc
+fi
 

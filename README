@@ -6,7 +6,7 @@ NAME
        rfc - download internet RFCs and display them on screen, man-style
 
 SYNOPSIS
-       rfc.py [options] [rfc number]
+       rfc [options] [rfc number]
 
 DESCRIPTION
        rfc downloads internet RFCs and displays them on screen. In interactive
@@ -26,21 +26,12 @@ SOURCES
        site.  My intention is to add support for the RFC  packages  that  many
        distros contain, so that the program can operate offline as well.
 
-OPTIONS
-       -p, --printable
-              Do  not attempt to remove formatting; preserve original printer-
-              friendly format.
-
-       -h, --help
-              Open this file instead of an RFC.
-
-
 AUTHOR
        Johan Förberg, <johan@forberg.se>
 
 SEE ALSO
-       less(1), man(1), python(1).
+       less(1), man(1)
 
 
 
-Linux                          December 17, 2011                        RFC(1)
+Linux                          February 20, 2016                        RFC(1)
