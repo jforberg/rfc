@@ -1,0 +1,46 @@
+RFC(1)                           USER COMMANDS                          RFC(1)
+
+
+
+NAME
+       rfc - download internet RFCs and display them on screen, man-style
+
+SYNOPSIS
+       rfc.py [options] [rfc number]
+
+DESCRIPTION
+       rfc downloads internet RFCs and displays them on screen. In interactive
+       mode, screen display is delegated to less(1) which means that less com-
+       mands such as regexp searches are available.
+
+       Some attempt is made to remove unnecessary formatting. The RFCs are all
+       formatted for printing on US letter, which means that there are  a  lot
+       of  extra  line-feeds and form-feeds between pages. rfc tries to remove
+       as much of it as possible to allow for pleasant reading on screen.  Due
+       to  the  impressive  amount of ASCII art present in RFCs, reflowing the
+       text is hard or impossible, so readers should set their terminal widths
+       to at least 80 characters wide to read them comfortably.
+
+SOURCES
+       Currently,  rfc fetches RFCs from their source, the rfc-editor.org web-
+       site.  My intention is to add support for the RFC  packages  that  many
+       distros contain, so that the program can operate offline as well.
+
+OPTIONS
+       -p, --printable
+              Do  not attempt to remove formatting; preserve original printer-
+              friendly format.
+
+       -h, --help
+              Open this file instead of an RFC.
+
+
+AUTHOR
+       Johan Förberg, <johan@forberg.se>
+
+SEE ALSO
+       less(1), man(1), python(1).
+
+
+
+Linux                          December 17, 2011                        RFC(1)

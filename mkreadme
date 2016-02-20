@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -z $1 ]
+then
+    echo "Bad syntax. Used like: mkreadme [file]"
+    exit 1
+fi
+
+groff -Tlatin1 -man $1 | sed -e 's/.//g' > README
