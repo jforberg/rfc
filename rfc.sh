@@ -1,11 +1,11 @@
 #!/bin/bash
 
-RFC_URL='http://www.rfc-editor.org/rfc/rfc%d.txt'
+RFC_URL='https://www.rfc-editor.org/rfc/rfc%d.txt'
 INDEX_FILE='/usr/share/rfc-get/rfc-index.txt'
 
 online_rfc()
 {
-    curl -- $(printf "$RFC_URL" $1) 2>/dev/null
+    curl -L -- $(printf "$RFC_URL" $1) 2>/dev/null
 }
 
 deformat_rfc()
